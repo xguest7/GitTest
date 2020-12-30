@@ -23,8 +23,7 @@ public class MainController {
 	
 	@PostMapping("/strcount")
 	public String bb(String content, Model model) {
-		System.out.println(content);
-		model.addAttribute("count", content.length());
+		model.addAttribute("count", content.replaceAll(" ","").length());
 		return "count";
 	}
 }
