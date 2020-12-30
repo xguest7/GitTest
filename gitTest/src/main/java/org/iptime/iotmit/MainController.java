@@ -23,7 +23,9 @@ public class MainController {
 	
 	@PostMapping("/strcount")
 	public String bb(String content, Model model) {
-		model.addAttribute("count", content.replaceAll(" ","").length());
+		
+		model.addAttribute("count", content.replaceAll(" ","").replaceAll("\r\n","").length());
 		return "count";
+		
 	}
 }
