@@ -9,7 +9,9 @@ url이 유지되면서
 총글자는 몇글자입니다. 라고 나오도록 만들어봅시다. */
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class MainController {
@@ -17,5 +19,11 @@ public class MainController {
 	@GetMapping("/strcount")
 	public void aa() {
 		//->strcount.jsp
+	}
+	
+	@PostMapping("/strcount")
+	public String bb(String content, Model model) {
+		model.addAttribute("count", content.length());
+		return "count";
 	}
 }
